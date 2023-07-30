@@ -56,14 +56,15 @@ const cardAppender = (selector) => {
   axios.get(`http://localhost:5001/api/articles`)
   .then(res => {
     console.log(res.data.articles)
-    const articleObj = res.data.articles
-    for(const key in articleObj){
-      if(articleObj.hasOwnProperty(key)){
-        const articleData = articleObj[key]
-        const card = Card(articleData)
-        document.querySelector(selector).appendChild(card)
+    const articlesData = res.data.articles
+    for(const topicKey in articlesData){
+      if(articlesData.hasOwnProperty(topicKey)){
+        const articlesArr = articlesData[topicKey]
+        articlesArr.forEach(articlesData => {
+          const card = Card(articlesData)
+          document.querySelector(selector).appendChild(card)
+        })
       }
-
     }
   })
   .catch(err => {
