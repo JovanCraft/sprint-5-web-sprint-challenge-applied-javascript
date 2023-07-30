@@ -18,6 +18,8 @@ const Tabs = (topics) => {
   const topicsCapsule = document.createElement('div')
   topicsCapsule.classList.add('topics')
 
+  const topicsArr = topics['topics']
+  //console.log('topicsArr',topicsArr)
   topics.forEach(topic => {
     const tabDiv = document.createElement('div')
     tabDiv.classList.add('tab')
@@ -38,8 +40,9 @@ const tabsAppender = (selector) => {
   axios.get(`http://localhost:5001/api/topics`)
   .then(res => {
 
-    const topics = res.data
-    const tabs = Tabs(topics)
+    const topicsArr = res.data.topics
+    //console.log('response from api', res.data)
+    const tabs = Tabs(topicsArr)
 
     document.querySelector(selector).appendChild(tabs)
 
