@@ -62,3 +62,7 @@ Demonstrate your understanding of this sprint's concepts by answering the follow
 3. What is an event listener?
 4. Why would we convert a NodeList into an Array?
 5. What is a component?
+
+
+
+
